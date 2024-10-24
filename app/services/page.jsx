@@ -67,11 +67,11 @@ const Page = () => {
   const [active, setActive] = useState(0);
   return (
     <div>
-      <h2 className="text-center font-bold text-3xl text-blueApp">
+      <h2 className="text-center font-bold md:text-3xl text-blueApp text-4xl px-18">
         Nuestros servicios
       </h2>
       <div className="flex gap-4">
-        <div className="max-w-sm">
+        <div className="max-w-sm hidden md:block">
           <Image
             src={"https://placehold.co/400x700.png"}
             alt=""
@@ -79,8 +79,8 @@ const Page = () => {
             height={700}
           />
         </div>
-        <div className="grid grid-cols-[1fr_4px_1fr] gap-8 ">
-          <div className="flex flex-col gap-4 ">
+        <div className="grid md:grid-cols-[1fr_4px_1fr] gap-8 ">
+          <div className="flex md:flex-col gap-4">
             {services.map((item, index) => (
               <ItemServices
                 key={index}
