@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import ItemServices from "./components/ItemServices";
 import ServicesDetails from "./components/ServicesDetails";
+import Image from "next/image";
 
 const services = [
   {
@@ -63,34 +64,44 @@ const Page = () => {
     0,
     services[0].details,
   ]);
+  const [active, setActive] = useState(0);
   return (
     <div>
       <h2 className="text-center font-bold text-3xl text-blueApp">
         Nuestros servicios
       </h2>
-      <div className="flex">
+      <div className="flex gap-4">
         <div className="max-w-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A ea maiores
-          odio minima doloremque. Quod sit maiores rem vel vero aliquid incidunt
-          optio veniam non laboriosam accusamus, ipsum consequatur sed.
+          <Image
+            src={"https://placehold.co/400x700.png"}
+            alt=""
+            width={400}
+            height={700}
+          />
         </div>
         <div className="grid grid-cols-[1fr_4px_1fr] gap-8 ">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 ">
             {services.map((item, index) => (
               <ItemServices
                 key={index}
                 title={item.title}
                 icon={item.icon}
                 description={item.description}
+                active={active === index}
                 onActive={() => {
                   setCurrentDetails([index, item.details]);
+                  setActive(index);
                 }}
               />
             ))}
           </div>
           <div className="border-l-gray-800 border-l w-1"></div>
           <div className="">
-            <ServicesDetails services={currentDetails} />
+            {services.map((item, index) =>
+              index === active ? (
+                <ServicesDetails key={index} services={item.details} />
+              ) : null
+            )}
           </div>
         </div>
       </div>

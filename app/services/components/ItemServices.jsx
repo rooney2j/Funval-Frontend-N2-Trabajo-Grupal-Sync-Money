@@ -5,11 +5,14 @@ const ItemServices = ({
   description = "",
   icon = null,
   onActive = null,
+  active = false,
 }) => {
   return (
     <div
       onMouseEnter={onActive}
-      className="flex border-2 border-gray-200 bg-gray-200 rounded-lg p-4 gap-4"
+      className={`flex ${
+        active ? "bg-gray-200" : ""
+      } rounded-lg p-4 gap-4`}
     >
       <div className="max-w-12 w-12 min-w-12 max-h-12 h-12 min-h-12   rounded-full flex items-center justify-center bg-blueApp  text-white">
         {icon}
