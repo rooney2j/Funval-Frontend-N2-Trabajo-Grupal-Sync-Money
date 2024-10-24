@@ -12,7 +12,7 @@ export default function Team() {
             </div>
             <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#0e2e76] to-transparent mt-28"></div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-28">
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-3 mt-28">
                 <div className="w-40 h-80">
                     <img className="border rounded-xl shadow-lg w-40 h-64 object-cover" src="https://mighty.tools/mockmind-api/content/human/63.jpg" alt="" />
                     <div className="p-2">
@@ -45,6 +45,13 @@ export default function Team() {
                     <img className="border rounded-xl shadow-lg w-40 h-64 object-cover" src="https://mighty.tools/mockmind-api/content/cartoon/10.jpg" alt="" />
                     <div className="p-2">
                         <h2 className="text-[#0e2e76] font-bold">Jean Pierre</h2>
+                        <h3 className="text-xs text-gray-400">Junior Developer</h3>
+                    </div>
+                </div>
+                <div className="w-40 h-80">
+                    <img className="border rounded-xl shadow-lg w-40 h-64 object-cover" src="https://mighty.tools/mockmind-api/content/human/41.jpg" alt="" />
+                    <div className="p-2">
+                        <h2 className="text-[#0e2e76] font-bold">Jose Javier</h2>
                         <h3 className="text-xs text-gray-400">Junior Developer</h3>
                     </div>
                 </div>
