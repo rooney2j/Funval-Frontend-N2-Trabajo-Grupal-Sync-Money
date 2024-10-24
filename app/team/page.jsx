@@ -5,7 +5,7 @@ export default function Team() {
             <img className="w-full object-cover" src="https://cambiafx.pe/themes/cambiafx/assets/img/bg-top2.png" alt="" />
             <div className="absolute flex flex-col items-center mt-10">
             <h2 className="text-[#0e2e76] text-4xl">Team</h2>
-            <div className="text-[#0e2e76] px-6 text-justify md:w-[70%] mt-8">
+            <div className="text-white px-6 text-justify md:w-[70%] mt-8">
                 <p>En nuestro equipo de desarrollo, estamos comprometidos en ofrecer lo mejor de nosotros para crear una experiencia única en el intercambio de monedas. Nos une la pasión por la tecnología y la innovación, y trabajamos incansablemente para asegurar que nuestra app sea eficiente, segura y fácil de usar.</p>
                 <p>Cada uno de nosotros aporta habilidades únicas que, en conjunto, nos permiten superar los retos más complejos. Nuestra meta es no solo cumplir con las expectativas, sino también superarlas, brindando soluciones de alta calidad para nuestros usuarios.</p>
                 <p>Creemos en la mejora continua, en la colaboración efectiva y en el poder de una visión compartida. Con cada línea de código y cada nueva función, nos acercamos a crear una plataforma que revolucionará la forma en que se realizan los cambios de moneda. ¡Estamos aquí para marcar la diferencia!</p>
