@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ItemServices from "./components/ItemServices";
 import ServicesDetails from "./components/ServicesDetails";
 import Image from "next/image";
@@ -15,7 +15,7 @@ const services = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-6"
+        className="size-full p-2"
       >
         <path
           strokeLinecap="round"
@@ -42,7 +42,7 @@ const services = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-6"
+        className="size-full p-2"
       >
         <path
           strokeLinecap="round"
@@ -65,6 +65,17 @@ const Page = () => {
     services[0].details,
   ]);
   const [active, setActive] = useState(0);
+  const onClickChange = useCallback((value) => {
+    setActive((prev) => {
+      let _r = prev + value;
+      if (_r > services.length - 1) {
+        _r = 0;
+      } else if (_r < 0) {
+        _r = services.length - 1;
+      }
+      return _r;
+    });
+  }, []);
   return (
     <div>
       <h2 className="text-center font-bold md:text-3xl text-blueApp text-4xl px-18">
@@ -79,30 +90,70 @@ const Page = () => {
             height={700}
           />
         </div>
-        <div className="grid md:grid-cols-[1fr_4px_1fr] gap-8 ">
-          <div className="flex md:flex-col gap-4">
-            {services.map((item, index) => (
-              <ItemServices
-                key={index}
-                title={item.title}
-                icon={item.icon}
-                description={item.description}
-                active={active === index}
-                onActive={() => {
-                  setCurrentDetails([index, item.details]);
-                  setActive(index);
-                }}
+        <div className=" flex items-start">
+          <button
+            onClick={() => onClickChange(-1)}
+            className="block md:hidden  px-4  mt-14"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
               />
-            ))}
+            </svg>
+          </button>
+          <div className="md:grid md:grid-cols-[1fr_4px_1fr] gap-8 px-4">
+            <div className="flex md:flex-col gap-4">
+              {services.map((item, index) => (
+                <ItemServices
+                  key={index}
+                  title={item.title}
+                  icon={item.icon}
+                  description={item.description}
+                  active={active === index}
+                  onActive={() => {
+                    setCurrentDetails([index, item.details]);
+                    setActive(index);
+                  }}
+                />
+              ))}
+            </div>
+            <div className="border-l-gray-800 border-l w-1 hidden md:block"></div>
+            <div className="">
+              {services.map((item, index) =>
+                index === active ? (
+                  <ServicesDetails key={index} services={item.details} />
+                ) : null
+              )}
+            </div>
           </div>
-          <div className="border-l-gray-800 border-l w-1"></div>
-          <div className="">
-            {services.map((item, index) =>
-              index === active ? (
-                <ServicesDetails key={index} services={item.details} />
-              ) : null
-            )}
-          </div>
+          <button
+            onClick={() => onClickChange(1)}
+            className="block md:hidden  px-4  mt-14"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
