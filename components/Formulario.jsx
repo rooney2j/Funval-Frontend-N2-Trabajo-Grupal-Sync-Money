@@ -39,7 +39,7 @@ export default function Formulario() {
 
                 <div className="flex flex-col">
                     <label htmlFor="monto_destino" className="text-center">
-                        <span className="text-[10px]">Monto de origen</span>
+                        <span className="text-[10px]">Monto de destino</span>
                     </label>
                     <input id="monto_origen" type="text" className="h-8 border-b-2 rounded-lg border-green-400" />
                 </div>

@@ -5,8 +5,8 @@ import Link from 'next/link'
 export default function Footer() {
     return (
 
-        <main className='w-full h-2/12 bg-gradient-to-tr from-sky-400 via-slate-300 to-sky-900 py-5'>
-            <article className='flex justify-center w-full h-full '>
+        <footer className='w-full h-2/12 bg-gradient-to-tr from-sky-400 via-slate-300 to-sky-900 py-5'>
+            <div className='flex justify-center w-full h-full '>
                 <div className='flex flex-col w-8/12'>
 
                     <div className='flex font-mono text-lg boder border-b-2 border-b-[#0e2e76]'>
@@ -73,8 +73,8 @@ export default function Footer() {
                     </div>
 
                 </div>
-            </article>
-        </main>
+            </div>
+        </footer>
 
     )
 }
