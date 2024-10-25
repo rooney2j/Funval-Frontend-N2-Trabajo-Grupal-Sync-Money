@@ -1,17 +1,21 @@
+"use client"
+import Chat from '@/components/chat'
+import ChatBubble from '@/components/ChatBubble'
 import HouseIcon from '@/components/houseIcon'
 import LocationIcon from '@/components/locationIcon'
 import PhoneIcon from '@/components/phoneIcon'
 import TextIcon from '@/components/textIcon'
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Contactanos() {
+    const[chat, setChat] = useState(false)
     return (
         <section className='h-screen w-screen overflow-x-hidden lg:overflow-hidden '>
             <div className='relative flex  w-screen h-[35%]  bg-no-repeat bg-[url("https://cambiafx.pe/themes/cambiafx/assets/img/bg-top2.png")] lg:rounded-ee-full items-center rounded-ee-lg'>
                 <article className='h-1/2 flex flex-col ms-4 lg:ms-32 '>
                     <div className='flex  border-b text-white gap-x-2 pb-2 w-60  '>
                         <HouseIcon />
-                        <h2 className=''>Async Money / <b>Contacto</b></h2>
+                        <h2 className='cursor-pointer'>Async Money / <b>Contacto</b></h2>
                     </div>
                     <div className='flex flex-col  mt-4'>
                         <div className='flex items-center gap-x-2'>
@@ -67,8 +71,11 @@ export default function Contactanos() {
              
             </div>
             <div className='sticky w-full h-8 lg:-translate-y-[370px] flex justify-end pe-5'>
-                <button className='h-12 w-12 flex items-center bg-violet-500 justify-center rounded-full text-white'>H</button>
+                <button onClick={()=>chat === false? setChat(true): setChat(false)} className='h-12 w-12 flex items-center bg-violet-500 justify-center rounded-full text-white'>
+                    <ChatBubble/>
+                </button>
             </div>
+            {chat && <Chat/>}
         </section>
     )
 }
